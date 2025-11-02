@@ -10,10 +10,9 @@ router.post('/register',registerUser);
 
 router.post('/login', loginUser);
 
-router.post('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
     res.clearCookie('token');
-    res.send('user logged out successfully');
-    return res.redirect('/shop');
+    return res.redirect('/');
 });
 
 module.exports = router;
