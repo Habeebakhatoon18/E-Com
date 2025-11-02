@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
+const debug = require('debug')('development:MongoConnect');
+const config = require('config');
 
-const dbPath = process.env.dbURL || 'mongodb://localhost:27017/ecommerce';
 mongoose
-.connect(dbPath)
+.connect(config.get("dbURI"))
 .then(() => {
-    console.log('Connected to MongoDB');
+    debug('Connected to MongoDB');
 }).catch((err) => {
-    console.error('Error connecting to MongoDB', err);
+    debug('Error connecting to MongoDB', err);
 });
 
 module.exports = mongoose.connection;

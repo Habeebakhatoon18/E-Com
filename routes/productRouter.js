@@ -2,7 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.send('Product route working');
+    res.render('working');
+});
+
+router.post('/create', async (req, res) => {
+    
 });
 
 module.exports = router;

@@ -14,4 +14,4 @@ const adminSchema = new mongoose.Schema({
     picture :String
 })
 
-module.exports  = mongoose.model('Admin',productSchema);
+module.exports  = mongoose.model('Admin',adminSchema);
