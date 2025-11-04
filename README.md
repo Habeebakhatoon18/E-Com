@@ -71,7 +71,3 @@ Here’s what I learned:
 
 **Habeeba Khatoon**
 💼 Focus: Backend Development with Node.js & Express
-
-
-Would you like me to add a small **badges section** (like Node.js version, MongoDB, License, etc.) at the top for a more polished GitHub look?
-```
