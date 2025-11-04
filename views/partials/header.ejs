@@ -2,14 +2,66 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wrist & Watch</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="font-['helvetica_now_display']">
-    <nav class="w-full fixed top-0 left-0 px-5 py-3">
-        <h3 class="text-xl">Scatch</h3>
-    </nav>
+<body class="font-['helvetica_now_display'] bg-[#F8F8F8] text-[#1A2238]">
+  <nav class="w-full fixed top-0 left-0 bg-white shadow-md px-6 py-3 flex justify-between items-center z-50">
+    
+    <!-- Brand -->
+    <div>
+      <h3 class="text-2xl font-semibold tracking-wide text-[#1A2238]">Wrist & Watch</h3>
+      <p class="text-sm text-gray-500 -mt-1">It’s Her Time to Shine</p>
+    </div>
+     <!-- <% var loggedIn = typeof isLoggedIn !== "undefined"? loggedIn:true %>  -->
+      <% var loggedIn = typeof isLoggedIn !== "undefined" && isLoggedIn; %>
+
+    <!-- Nav Links (visible only if logged in) -->
+    <% if (loggedIn) { %>
+    <ul class="hidden md:flex items-center space-x-6">
+        <li><a href="/shop" class="hover:text-blue-500 transition-colors">Shop</a></li>
+      <li><a href="/users/cart" class="hover:text-blue-500 transition-colors">Cart</a></li>
+      <li><a href="" class="hover:text-blue-500 transition-colors">Account</a></li>
+      <li>
+        <a href="/users/logout"
+           class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-lg shadow transition">
+           Logout
+        </a>
+      </li>
+    </ul>
+
+    <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="md:hidden text-2xl text-[#1A2238]">
+      <i class="ri-menu-line"></i>
+    </button>
+
+    <% } %>
+  </nav>
+
+  <!-- Mobile Menu -->
+   
+  <% if (loggedIn  ) { %>
+  <div id="mobile-menu" class="hidden fixed top-16 right-4 bg-white shadow-lg rounded-lg p-4 space-y-3 md:hidden">
+    <a href="/cart" class="block hover:text-blue-500 transition">Cart</a>
+    <a href="/account" class="block hover:text-blue-500 transition">Account</a>
+    <a href="/users/logout" class="block bg-red-500 hover:bg-red-600 text-white text-center py-2 rounded-lg">Logout</a>
+  </div>
+  <% } %>
+
+  <script>
+    // Toggle mobile menu
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+
+</html>
